@@ -15,6 +15,7 @@ public class BasicQ1Cli {
             }
             else if(input.equals("Y")){
                 System.out.print("처음 숫자를 입력하세요>>>");
+                System.out.println();
                 int a = sc.nextInt();
 
                 System.out.print("두번째 숫자를 입력하세요>>>");
