@@ -17,7 +17,7 @@ public class Q1 {
         System.out.println(array[0]);
         System.out.println(array[2]);
         System.out.println(array[array.length-1]);
-        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(array)); //[11, 22, 33, 44, 55] 출력
         for(int x:array){
             System.out.print(x + "  ");
         }
