@@ -11,8 +11,8 @@ public class 배열패턴문제1 {
             arr[i] = r.nextInt(100) + 1; // 범위 1~100까지
         }//for
         System.out.println(Arrays.toString(arr));//for문 없이 배열 확인
-        Arrays.sort(arr); //배열의 내용을 오름차순으로 정령(작은수 --->큰수)
-        System.out.println(Arrays.toString(arr));
+        //Arrays.sort(arr); //배열의 내용을 오름차순으로 정령(작은수 --->큰수) 원본을 파괴 파괴함수.
+        //System.out.println(Arrays.toString(arr));
 
         System.out.println("-----------------------------------------");
         int minus = 0;
@@ -24,15 +24,15 @@ public class 배열패턴문제1 {
 
         int sum = 0;
         for (int x : arr) {
-            if(x>50){
+            if (x > 50) {
                 sum += x;
             }//if
         }//for
         System.out.println(sum);
         System.out.println("-----------------------------------------");
-        for (int i =0;i<arr.length;i++){
-            if(arr[i]>80){
-                System.out.println("최초 80 이상의 값의 위치\t"+(i+1));
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > 80) {
+                System.out.println("최초 80 이상의 값의 위치\t" + (i + 1));
                 break;
             }
         }//for
