@@ -5,11 +5,13 @@ import java.util.Random;
 
 public class 배열패턴문제1 {
     public static void main(String[] args) {
-        Random r = new Random(55);
+        Random r = new Random(55); //seed는 55
         int[] arr = new int[10];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = r.nextInt(100) + 1;
+            arr[i] = r.nextInt(100) + 1; // 범위 1~100까지
         }//for
+        System.out.println(Arrays.toString(arr));//for문 없이 배열 확인
+        Arrays.sort(arr); //배열의 내용을 오름차순으로 정령(작은수 --->큰수)
         System.out.println(Arrays.toString(arr));
 
         System.out.println("-----------------------------------------");
