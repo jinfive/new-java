@@ -45,7 +45,7 @@ import java.util.Scanner;
                             else {
                                 System.out.println("예매 불가");
                             }
-                            
+
                         }//else if
                     }//while
                     sc.close();
