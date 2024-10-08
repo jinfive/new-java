@@ -59,16 +59,23 @@ public class 로그인화면 {
                 String id3 = id2.getText();//id2에 입력한 값을 가지고온다
                 String pw3 = pw2.getText();//id2에 입력한 값을 가지고온다
                 System.out.println(id3 + " " + pw3);
+                System.out.println(id3.equals(pw3) + " "+pw3.length());
                 if (id3.equals("root") && pw3.equals("1234")) {
                     JOptionPane.showMessageDialog(frame,"로그인 성공");
                 }//if
+                else if (id3.length()==0 || pw3.length()==0) {
+                    JOptionPane.showMessageDialog(frame,"아이디 비밀번호를 입력하세요");
+                }
                 else {
                     JOptionPane.showMessageDialog(frame,"로그인 실패.");
+
                 }//else
             }//actionPerformed
         });//id2
         del.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                id2.setText("");
+                pw2.setText("");
 
             }
         });//id2
