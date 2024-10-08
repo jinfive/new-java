@@ -10,6 +10,7 @@ public class 로그인화면 {
         JFrame frame = new JFrame();
         frame.setSize(250,500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("로그인화면");
         JLabel top = new JLabel();
         top.setText("일기장");
         Font font =new Font("궁서",Font.BOLD,90);
