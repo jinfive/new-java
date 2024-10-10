@@ -1,4 +1,4 @@
-package org.example.day7.UseClass;
+package org.example.day8.class사용;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
 
 public class 일기쓰기화면 {
     public static void main(String[] args) {
