@@ -63,6 +63,9 @@ public class 로그인화면 {
                 System.out.println(id3.equals(pw3) + " "+pw3.length());
                 if (id3.equals("root") && pw3.equals("1234")) {
                     JOptionPane.showMessageDialog(frame,"로그인 성공");
+                    //일기쓰기 화면이 보이게 하자
+                    일기쓰기화면 diary = new 일기쓰기화면();
+                    diary.open();
                 }//if
                 else if (id3.length()==0 || pw3.length()==0) {
                     JOptionPane.showMessageDialog(frame,"아이디 비밀번호를 입력하세요");

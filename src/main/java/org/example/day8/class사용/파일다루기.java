@@ -24,7 +24,7 @@ public class 파일다루기 {
         System.out.println(file.getPath());
         System.out.println(file.getParentFile());//상위
         System.out.println(file.getAbsolutePath());
-        
+
 
 
     }//mian
