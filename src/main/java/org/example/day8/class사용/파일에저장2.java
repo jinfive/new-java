@@ -21,6 +21,7 @@ public class 파일에저장2 {
         System.out.println(hms);
         String time = ymd + hms;
 
+
         String s = JOptionPane.showInputDialog("주말동안 할일은?(운동,코딩,여행 등..)");
         String s1 = JOptionPane.showInputDialog("구체적인 내용입력해주세요.장소-시간-내용");
 

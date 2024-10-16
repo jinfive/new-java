@@ -7,7 +7,7 @@ public class Car {
     int maxSpeed;
 
     //맴버 메서드
-    public void speedup() {
+    public static void speedup() {
         System.out.println("속도를 높이다");
     }//speedup함수
 

@@ -2,7 +2,7 @@ package org.example.day11.스태틱;
 
 public class 운동 {
     static int count;
-    static int totalTime;
+    private static int totalTime;
 
     String play;
     String people;

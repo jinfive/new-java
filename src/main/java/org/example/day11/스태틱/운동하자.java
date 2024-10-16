@@ -8,8 +8,7 @@ public class 운동하자 {
 
         System.out.println(w1);
         System.out.println(w2);
-        System.out.println(운동.count);
-        System.out.println(w2.getTime());
-
+        System.out.println("운동 종목 수"+운동.count);
+        System.out.println("운동시간 "+w2.getTime());
     }
 }
