@@ -13,7 +13,7 @@ public class Threadtime extends Thread {
         for (int i = 0; i < 300; i++) {
             System.out.println(now.format(formatter));
             try {
-                Thread.sleep(50); //1초 1000 >>500 (0.5초)
+                Thread.sleep(5000); //1초 1000 >>500 (0.5초)
             } catch (InterruptedException e) {
                 System.out.println("문제 발생");
             }
