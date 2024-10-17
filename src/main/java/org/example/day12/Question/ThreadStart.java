@@ -6,6 +6,7 @@ public class ThreadStart {
         ThreadString threadString = new ThreadString();
         Threadtime threadtime = new Threadtime();
 
+
         threadCount.start();
         threadtime.start();
         threadString.start();
