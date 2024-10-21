@@ -14,7 +14,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     // https://mvnrepository.com/artifact/org.jsoup/jsoup
     implementation 'org.jsoup:jsoup:1.18.1'
-    //자바로 크롤링 하고싶은데 gradle에 뭐라고 써야하나?
+    implementation 'org.apache.poi:poi-ooxml:5.2.3'
 
 }
 

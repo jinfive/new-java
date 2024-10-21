@@ -5,7 +5,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 public class 증권크롤러2 {
-    public String crawl(String code) throws Exception {
+    public String[] crawl(String code) throws Exception {
         Document doc2 = Jsoup.connect("https://finance.naver.com/item/main.naver?code="+code).get();
         Elements list5 = doc2.select("span.blind");
 
@@ -22,10 +22,11 @@ public class 증권크롤러2 {
         //현재가 : 60,100
         //전일가 : 59,700
 
-        String data = "코드 : " + code + "\n" +
-                "고가: " + high +"\n" +
-                "현재가: " + today + "\n" +
-                "전일가: " + yesterday;
+//        String data = "코드 : " + code + "\n" +
+//                "고가: " + high +"\n" +
+//                "현재가: " + today + "\n" +
+//                "전일가: " + yesterday;
+        String[] data = {code,high,today,yesterday};
         return data;
     }
 }
