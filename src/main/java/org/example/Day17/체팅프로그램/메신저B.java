@@ -74,6 +74,8 @@ public class 메신저B extends JFrame {
             byte[] data = new byte[256];
             DatagramPacket packet = new DatagramPacket(data, data.length);
             socket.receive(packet);
+
+            System.out.println(packet.getAddress()+":"+packet.getPort());
             list.append("너>>>>" + new String(packet.getData()) + "\n");
 
         }

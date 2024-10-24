@@ -10,6 +10,7 @@ import java.net.InetAddress;
 
 public class 메신저A extends JFrame {
     JTextArea list;
+
     메신저A() {
         //여기에 코드 다하면, static이 아니여서 더 좋은 코드를 만들 수 있음.
         System.out.println("생성자 시작.");
@@ -19,7 +20,7 @@ public class 메신저A extends JFrame {
         setSize(500, 500);
         getContentPane().setBackground(Color.yellow);
 
-       list = new JTextArea();
+        list = new JTextArea();
         JTextField input = new JTextField();
         setLayout(new BorderLayout());
         add(list, BorderLayout.CENTER);
@@ -43,13 +44,13 @@ public class 메신저A extends JFrame {
                         //input에 입력한 데이터를 가지고 와서
                         String data = input.getText();
                         //list 끝에 붙여보자
-                        list.append("나>>>>"+ data+"\n");
+                        list.append("나>>>>" + data + "\n");
                         input.setText("");
                         try {
                             DatagramSocket socket = new DatagramSocket();
                             byte[] data2 = data.getBytes();
-                            InetAddress ip  = InetAddress.getByName("127.0.0.1");
-                            DatagramPacket packet = new DatagramPacket(data2,data2.length,ip,8081);//보낸다
+                            InetAddress ip = InetAddress.getByName("127.0.0.1");
+                            DatagramPacket packet = new DatagramPacket(data2, data2.length, ip, 8081);//보낸다
                             socket.send(packet);
                             socket.close();
                         } catch (Exception ex) {
@@ -63,6 +64,7 @@ public class 메신저A extends JFrame {
         //맨 끝!
         setVisible(true);
     }
+
     public void process() throws Exception {
         //소캣 생성
         //공간 byte[]만들기,packet만들어줌
@@ -72,6 +74,7 @@ public class 메신저A extends JFrame {
             byte[] data = new byte[256];
             DatagramPacket packet = new DatagramPacket(data, data.length);
             socket.receive(packet);
+            System.out.println(packet.getAddress() + ":" + packet.getPort());
             list.append("너>>>>" + new String(packet.getData()) + "\n");
 
         }
