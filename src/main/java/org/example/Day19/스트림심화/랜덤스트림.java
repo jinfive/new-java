@@ -17,5 +17,10 @@ public class 랜덤스트림 {
 //                .sorted()
 //                .forEach(System.out::println);
         DoubleStream ds = r.doubles(2000,0,100);
+        long count = ds.distinct().count();
+        System.out.println("중복 제거한후 개수>>>"+count);
+         r.doubles(200,0,0  ) .distinct().sorted().forEach(System.out::println);
+
+
     }
 }
