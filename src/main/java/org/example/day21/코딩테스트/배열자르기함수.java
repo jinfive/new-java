@@ -1,5 +1,6 @@
 package org.example.day21.코딩테스트;
 
+import org.example.ArrPrint;
 import java.util.Arrays;
 
 public class 배열자르기함수 {
@@ -12,6 +13,7 @@ public class 배열자르기함수 {
         //1,2,3
         int[] sub3 = Arrays.copyOfRange(list,0,3);
         System.out.println(Arrays.toString(sub3));
-        System.out.println(Arrays.toString(sub1));
+        //System.out.println(Arrays.toString(sub1));
+        ArrPrint.print(sub3);
     }
 }

@@ -13,4 +13,7 @@ public class ArrPrint {
     public static void print(double[] x){
         System.out.println(Arrays.toString(x));
     }
+    public static void print(Object[] x){
+        System.out.println(Arrays.toString(x));
+    }
 }
