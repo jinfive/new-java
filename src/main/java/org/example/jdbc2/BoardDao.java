@@ -42,12 +42,11 @@ public class BoardDao {
         // 자원 해제
         ps.close();
     }
-    public void update( String contentv,int nov) throws Exception {
+    public void update(String contentv,int nov) throws Exception {
         // 3. SQL 준비 --> 객체 생성
-        String sql = "update board set contentv ? where nov = ?";
+        String sql = "update board set content = ? where no = ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(2, nov);
-
         ps.setString(1, contentv);
 
 
