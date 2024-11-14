@@ -1,10 +1,8 @@
-package org.exa0mple.jdbc2;
-
-import org.example.jdbc2.MemberDao;
+package org.example.jdbc2;
 
 import java.util.Scanner;
 
-public class MemberUpdateUi {
+public class BoardUpdateUi {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.print("업데이트할 전화 번호 입력>> ");

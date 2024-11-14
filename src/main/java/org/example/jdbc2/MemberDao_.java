@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.Scanner;
 
-public class MemberDao {
+public class MemberDao_ {
     //DAO클래스는 맴버 테이블에 있는 데이터에 접근해서 여러가지 기능을 정의하는 클래스
     //DB테이블다아 DAO는 하나씩 만든다.
     //테이블 1000개 dao도 1000개 만들어
