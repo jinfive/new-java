@@ -69,6 +69,7 @@ public class deptDao2 {
         // 자원 해제
         ps.close();
     }
+    
 
     public void insert(DeptVO vo) throws Exception {
         // 3. SQL 준비 --> 객체 생성

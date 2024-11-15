@@ -2,10 +2,7 @@ package org.example.JDBC3.read연습;
 
 import org.example.JDBC3.read연습.MemberVo;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class MemberDao2 {
     // DAO클래스는 맴버 테이블에 있는 데이터에 접근해서 여러가지 기능을 정의하는 클래스
@@ -26,6 +23,20 @@ public class MemberDao2 {
         System.out.println("2. DB 연결 완료");
     }
 
+    public boolean login(MemberVo vo) throws SQLException {
+        boolean result = false;//로그인 실패
+        String sql = "select id from member\n" +
+                "where id = ? and pw = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, vo.getId());
+        ps.setString(2, vo.getPw());
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            result = true;
+        }
+        return result;
+    }
+
     //기능 메서드 정의
     public  MemberVo one(String id) throws Exception {
         //1,2단계 DAO객세 생성시 완료
@@ -35,6 +46,7 @@ public class MemberDao2 {
                 "where id = ? ";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, id);
+
         ResultSet set = ps.executeQuery();//테이블로 부터 데이터를 받아올때 써
         //결과가 있으면 컬럼의 이름이나 순서로 값을 추출 할 수 있다.
        // System.out.println(set.next());
