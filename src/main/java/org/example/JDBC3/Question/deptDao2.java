@@ -1,8 +1,6 @@
-package org.example.jdbc2.Question;
+package org.example.JDBC3.Question;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.sql.*;
 
 public class deptDao2 {
     // DAO클래스는 맴버 테이블에 있는 데이터에 접근해서 여러가지 기능을 정의하는 클래스
@@ -21,6 +19,21 @@ public class deptDao2 {
         String pw = "";
         con = DriverManager.getConnection(url, id, pw);
         System.out.println("2. DB 연결 완료");
+    }
+    //검색 메서드 정의
+    public DeptVO one(int deptno) throws SQLException {
+        String sql ="select * from dept2\n" +
+                "where deptno = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, deptno);
+        ResultSet rs = ps.executeQuery();//테이블로 부터 데이터를 받아올때 사용
+        DeptVO VO = new DeptVO();
+        if(rs.next()){
+            VO.setDeptno(rs.getInt("deptno"));
+            VO.setDeptname(rs.getString("dname"));
+            VO.setLoc(rs.getString("loc"));
+        }
+        return VO;
     }
 
     public void update(DeptVO vo) throws Exception {

@@ -1,4 +1,4 @@
-package org.example.jdbc2.Question;
+package org.example.JDBC3.Question;
 
 import java.util.Scanner;
 

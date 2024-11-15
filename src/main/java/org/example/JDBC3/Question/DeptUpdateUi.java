@@ -1,6 +1,4 @@
-package org.example.jdbc2.Question;
-
-import org.example.jdbc2.MemberDao;
+package org.example.JDBC3.Question;
 
 import java.util.Scanner;
 
