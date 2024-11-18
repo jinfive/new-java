@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class DeptDAO2 {
     Connection con = null;
+
     public DeptDAO2() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
         System.out.println("드라이버 연결 성공");
@@ -12,17 +13,19 @@ public class DeptDAO2 {
         String id = "root";
         String pw = "";
 
-        con = DriverManager.getConnection(url,id,pw);
+        con = DriverManager.getConnection(url, id, pw);
         System.out.println("2.db연결 성공");
     }
 
     public DeptVO2 one(int deptno) throws Exception {
-        DeptVO2 bag = new DeptVO2();
+
         String sql = "select * from dept where deptno = ?";
         PreparedStatement ps = con.prepareCall(sql);//Java는 sql을 모르기에
-        ps.setInt(1,deptno);
+        ps.setInt(1, deptno);
         ResultSet rs = ps.executeQuery();//테이블에서 가져와
-        if(rs.next()){
+        DeptVO2 bag = null;
+        if (rs.next()) {
+            bag = new DeptVO2();
             bag.setDeptno(rs.getInt("deptno"));
             bag.setDname(rs.getString("dname"));
             bag.setLoc(rs.getString("loc"));
@@ -30,13 +33,16 @@ public class DeptDAO2 {
         return bag;
     }//one
 
-    public ArrayList<DeptVO2> list()throws Exception{
-        ArrayList<DeptVO2> list = new ArrayList<>();
+    public ArrayList<DeptVO2> list() throws Exception {
+        ArrayList<DeptVO2> list = null;
         String sql = "select * from dept";
         PreparedStatement ps = con.prepareStatement(sql);
         DeptVO2 bag = new DeptVO2();
         ResultSet rs = ps.executeQuery();
-        while(rs.next()){
+        while (rs.next()) {
+            if (list == null) {
+                list = new ArrayList<>();
+            }
             bag.setDeptno(rs.getInt("deptno"));
             bag.setDname(rs.getString("dname"));
             bag.setLoc(rs.getString("loc"));

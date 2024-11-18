@@ -9,7 +9,11 @@ public class DeptOneUI2 {
         int n = scanner.nextInt();
         DeptDAO2 dao = new DeptDAO2();
         DeptVO2 bag = dao.one(n);
-        System.out.println(bag);
+        if(bag != null){
+            System.out.println(bag);
+        }
+
+
 
     }
 }
