@@ -40,7 +40,7 @@ public class KakaoDistributedDatabaseExample {
             pstmt.executeUpdate();
             System.out.println("2. sql전송");
 
-            //3. 2번에서 얻은 id를 이용해서 몽고db에 주문정보를 넣자.
+            //3. 2번에서 얻은 id를 이용해서 mysql에 주문정보를 넣자.
             ResultSet rs = pstmt.getGeneratedKeys();
             int userId = 0;
             if (rs.next()) {
