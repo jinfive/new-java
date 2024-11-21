@@ -37,13 +37,13 @@ public class Member여러개검색 {
         }
 
 
-        System.out.println("-------------------");
+        System.out.println("-----------------------");
         List<Document> res2 = member.find().into(new ArrayList<>());
         for(Document doc : res2) {
-            System.out.println(res2.get(0).getString("id"));
-            System.out.println(res2.get(0).getString("name"));
-            System.out.println(res2.get(0).getString("pw"));
-            System.out.println(res2.get(0).getString("tel"));
+            System.out.println(doc.getString("id"));
+            System.out.println(doc.getString("name"));
+            System.out.println(doc.getString("pw"));
+            System.out.println(doc.getString("tel"));
         }
 
 

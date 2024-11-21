@@ -31,9 +31,8 @@ public class Q5 {
         List<Document> res2 = member.find(filter).into(new ArrayList<>());
         for (Document doc : res2) {
             System.out.println(doc.getString("name"));
-            Document query = filter.append("price", new Document("$gte", 25000));
+            Document query = filter.append("price", new Document("$gte", 30000));
             member.deleteMany(query);
-
         }
 
 

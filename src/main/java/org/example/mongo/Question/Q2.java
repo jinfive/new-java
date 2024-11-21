@@ -16,8 +16,8 @@ public class Q2 {
         MongoClient mongoClient = new MongoClient("localhost", 27017);
         MongoDatabase database = mongoClient.getDatabase("shop");
         MongoCollection<Document> collection = database.getCollection("item");
+        
 // 블로그 서비스에서 회원 아이디로 삭제
-        String brand = "Nike"; // 삭제할 회원 아이디
         Document query = new Document("category", "Clothing").append("brand", "Nike");
         collection.deleteOne(query);
 
