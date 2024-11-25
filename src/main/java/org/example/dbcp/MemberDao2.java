@@ -3,26 +3,20 @@ package org.example.dbcp;
 import org.example.jdbc2.MemberVo;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class MemberDao2 {
     // DAO클래스는 맴버 테이블에 있는 데이터에 접근해서 여러가지 기능을 정의하는 클래스
     // DB테이블마다 DAO는 하나씩 만든다.
     // 테이블 1000개 dao도 1000개 만들어야 한다.
-     Connection con;  // static 제거
+    Connection con;  // static 제거
+    DBConnectionMgr dbcp;
 
     public MemberDao2() throws Exception {
-        // 1. 드라이버 설정 --> 레이지 로딩(실행 시 메모리에 올려줌)
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        System.out.println("1. 드라이버 설정 완료");
+        // 싱글톤을 생성된 DBCP객체 획득
+        dbcp = DBConnectionMgr.getInstance();
+        con = dbcp.getConnection();
 
-        // 2. DB 연결
-        String url = "jdbc:mysql://localhost:3306/shop2";
-        String id = "root";
-        String pw = "";
-        con = DriverManager.getConnection(url, id, pw);
-        System.out.println("2. DB 연결 완료");
     }
 
     public void update(String telv, String idv) throws Exception {
@@ -40,7 +34,7 @@ public class MemberDao2 {
         System.out.println("실행된 row 수 --> " + res);
 
         // 자원 해제
-        ps.close();
+        dbcp.freeConnection(con,ps);
     }
 
     public void delete(String idv) throws Exception {
@@ -57,7 +51,7 @@ public class MemberDao2 {
         System.out.println("실행된 row 수 --> " + res);
 
         // 자원 해제
-        ps.close();
+        dbcp.freeConnection(con, ps);
     }
 
     public void insert(MemberVo vo) throws Exception {
@@ -77,6 +71,6 @@ public class MemberDao2 {
         System.out.println("실행된 row 수 --> " + res);
 
         // 자원 해제
-        ps.close();
+        dbcp.freeConnection(con, ps);
     }
 }
