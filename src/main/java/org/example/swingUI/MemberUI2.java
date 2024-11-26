@@ -1,5 +1,9 @@
 package org.example.swingUI;
 
+import org.example.dbcp.MemberDao2;
+import org.example.dbcp.MemberVo;
+import org.example.dbcp.MemberVo;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -78,7 +82,65 @@ public class MemberUI2 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //클릭시 처리할 내용이 구현 되어 있어야한다.
-                
+                //id,pw,name,tel입력한 것 가지고 와서
+                String s1 = t1.getText();
+                String s2 = t2.getText();
+                String s3 = t3.getText();
+                String s4 = t4.getText();
+
+                MemberVo bag = new MemberVo();
+                bag.setId(s1);
+                bag.setPw(s2);
+                bag.setName(s3);
+                bag.setTel(s4);
+                //vo에 넣어서
+                try {
+                    MemberDao2 dao = new MemberDao2();
+                    dao.insert(bag);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+                //dao에 vo를 전달하면서 insert해달라고 요청을 한다.
+
+            }
+        });
+        b2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //클릭시 처리할 내용이 구현 되어 있어야한다.
+                String id = t1.getText();
+                String tel = t4.getText();
+                try {
+                    MemberDao2 dao = new MemberDao2();
+                    dao.update(id, tel);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            }
+        });
+        b3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //클릭시 처리할 내용이 구현 되어 있어야한다.
+                String id = t1.getText();
+                //클릭시 처리할 내용일 구현 되어야함
+                try {
+                    MemberDao2 dao = new MemberDao2();
+                    MemberVo bag = new MemberVo();
+                    t1.setText(bag.getId());
+                    t2.setText(bag.getPw());
+                    t3.setText(bag.getName());
+                    t4.setText(bag.getTel());
+
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+                //id 입격한 값 가지고 온다
+
+                //dao 에게 id주면서 검색 해 달라고 요청
+
+
             }
         });
 

@@ -25,7 +25,7 @@ public class MemberInsertUi2 {
         vo.setPw(pwv);
         vo.setName(namev);
         vo.setTel(telv);
-        dao.insert(vo);
+
 
 
     }

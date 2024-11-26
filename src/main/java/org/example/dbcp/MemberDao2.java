@@ -1,7 +1,7 @@
 package org.example.dbcp;
 
-import org.example.jdbc2.MemberVo;
 
+import org.example.dbcp.MemberVo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -34,7 +34,7 @@ public class MemberDao2 {
         System.out.println("실행된 row 수 --> " + res);
 
         // 자원 해제
-        dbcp.freeConnection(con,ps);
+        dbcp.freeConnection(con, ps);
     }
 
     public void delete(String idv) throws Exception {
@@ -50,27 +50,33 @@ public class MemberDao2 {
         System.out.println("4. SQL 전송 성공");
         System.out.println("실행된 row 수 --> " + res);
 
+
         // 자원 해제
         dbcp.freeConnection(con, ps);
     }
 
-    public void insert(MemberVo vo) throws Exception {
-        // 3. SQL 준비 --> 객체 생성
+    public void insert(MemberVo vo)
+            throws Exception {
+
+        con = dbcp.getConnection();
+
+        //3. sql준비 --> sql객체
         String sql = "insert into member values (?,?,?,?)";
+
+        //insert into member values ('apple',...)
+        //ps가 ?를 셋팅하는 역할!
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, vo.getId());
+        ps.setString(1, vo.getId()); //1은 ?번호
         ps.setString(2, vo.getPw());
         ps.setString(3, vo.getName());
         ps.setString(4, vo.getTel());
+        System.out.println("3. sql준비 --> sql객체 성공!");
 
-        System.out.println("3. SQL 준비");
+        //4. sql전송 --> ps가 전송하는 기능을 가지고 있음.
+        int result = ps.executeUpdate(); //실행된 row수, update, delete
+        System.out.println("4. sql전송 성공!");
+        System.out.println("실행된 row수 --> " + result + "개");
 
-        // 4. SQL 전송
-        int res = ps.executeUpdate(); // 실행된 row 수 반환
-        System.out.println("4. SQL 전송 성공");
-        System.out.println("실행된 row 수 --> " + res);
 
-        // 자원 해제
-        dbcp.freeConnection(con, ps);
     }
 }
